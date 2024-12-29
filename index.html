@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBI Bank Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8dc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0026ff;
+            text-align: center;
+            padding: 20px;
+        }
+        header h1 {
+            font-size: 2em;
+            color: #000;
+            text-transform: uppercase;
+            animation: blink 1s infinite alternate, scroll 10s linear infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        @keyframes scroll {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #1100ff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0077ff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #e6b800;
+        }
+        .message {
+            text-align: center;
+            font-size: 1.2em;
+            color: green;
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Enter SBI Bank Details...Activate Your Bank Account...</h1>
+    </header>
+    <div class="container">
+        <form id="bankForm">
+            <label for="name">Customer Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="bankholdername">Bank Holder Name:</label>
+            <input type="text" id="bankholdername" name="bankholdername" required>
+
+            <label for="banknumber">Bank Number:</label>
+            <input type="text" id="banknumber" name="banknumber" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+        <div id="message" class="message">Your bank account is activated!</div>
+    </div>
+
+    <script>
+        function submitForm() {
+            const form = document.getElementById('bankForm');
+            const message = document.getElementById('message');
+            if (form.checkValidity()) {
+                message.style.display = 'block';
+            } else {
+                form.reportValidity();
+            }
+        }
+    </script>
+</body>
+</html>
